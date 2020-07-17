@@ -1,0 +1,11 @@
+1. select city CITY,comm "COMM" from salespeople where comm >0.11;
+
+2. select onum,amt,odate from orders;
+
+3. select * from customers where snum=1001;
+
+4. select city,sname,snum,comm from salespeople;
+
+5. select cname,city,rating from customers where city='san jose';
+
+6. select distinct snum from orders;

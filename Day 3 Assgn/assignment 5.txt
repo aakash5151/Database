@@ -1,0 +1,11 @@
+1. select * from orders where amt>1000;
+
+2. select sname,city from salespeople where city ='london' and comm>0.10;
+
+3. select * from customers where rating >100 and city='rome'; 
+
+4. Select * from orders where (amt < 1000 OR NOT (odate = '1990-10-03' AND cnum > 2003));
+
+5. Select * from Orders where NOT ((odate = '1990-10-03' OR snum >1006) AND amt >= 1500);
+
+6. Select * From Salespeople;
