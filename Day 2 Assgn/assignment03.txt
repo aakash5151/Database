@@ -3,4 +3,4 @@ Ans: Yes
 
 
 2) Which subdivision of SQL is used to insert values in tables?
-Ans: DML subdivision
+Ans: DML subdivision = INSERT
