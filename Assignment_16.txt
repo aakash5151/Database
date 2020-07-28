@@ -1,0 +1,10 @@
+CREATE INDEX i_order ON orders(odate);
+
+
+alter table orders add constraint U_o_Onum unique (Onum);
+
+
+CREATE INDEX I_DATE ON orders(odate);
+
+
+ALTER TABLE customers add  PRIMARY KEY (rating);

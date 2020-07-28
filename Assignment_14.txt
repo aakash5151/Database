@@ -1,0 +1,23 @@
+
+
+INSERT INTO salespeople (city,sname,comm,snum)
+VALUES('San Jose','Blanco',NULL,1100);
+
+
+DELETE FROM orders
+WHERE cnum IN(SELECT cnum FROM customers WHERE cname='Clemens');
+
+
+UPDATE customers
+SET rating=rating+100 where city='rome';
+
+
+UPDATE customers
+SET snum=
+  (SELECT snum
+   FROM salespeople
+   WHERE sname='serres')
+WHERE snum =
+    (SELECT snum
+     FROM salespeople
+     WHERE sname='Motika');

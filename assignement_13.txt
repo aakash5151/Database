@@ -1,0 +1,38 @@
+
+SELECT cname,city,"HIGH RATING" RATING 
+FROM customers
+WHERE rating>200
+UNION
+SELECT cname,city,"LOW RATING" RATING 
+FROM customers
+WHERE rating <=200;
+
+
+SELECT sname,snum,cname
+FROM salespeople
+JOIN customers using(snum)
+WHERE snum IN
+    (SELECT snum
+     FROM customers
+     GROUP BY snum
+     HAVING count(snum)>1)
+ORDER BY sname,cname;
+
+
+SELECT snum
+FROM salespeople
+WHERE city='san jose'
+UNION
+SELECT DISTINCT snum
+FROM orders
+WHERE snum IN
+    (SELECT snum
+     FROM orders
+     WHERE odate LIKE '03-OCT-%');
+
+
+
+
+
+
+

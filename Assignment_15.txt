@@ -1,0 +1,26 @@
+
+CREATE TABLE Multicust AS
+SELECT *
+FROM salespeople
+WHERE snum IN
+    (SELECT snum
+     FROM customers
+     GROUP BY snum
+     HAVING count(snum)>1);
+
+
+DELETE customers
+WHERE cnum=ANY
+    (SELECT cnum
+     FROM orders
+     WHERE cnum NOT IN
+         (SELECT cnum
+          FROM customers));
+
+
+UPDATE salespeople
+SET comm=comm*1.20
+WHERE snum IN
+    (SELECT snum
+     FROM orders
+     WHERE amt>3000);
