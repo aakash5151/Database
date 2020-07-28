@@ -1,0 +1,26 @@
+
+
+create table orders_1 (
+	onum int (4) primary key,
+    odate date not null,
+    cnum int(4) unique,
+    snum int (4) unique
+);
+
+
+create table salespeople_2 (
+	Snum int (4) primary key,
+    Sname varchar(10)  check( substr(upper(sname),1,1) between 'A'and 'B'),
+    City varchar(10),
+    Comm float(3,2) default 0.10 
+);
+
+
+
+create table orders_2 (
+	onum int (4),
+    cnum int(4) ,
+    snum int (4),
+    primary key(onum,snum,cnum),
+    constraint demo check (onum>cnum and cnum>snum)
+);

@@ -1,0 +1,25 @@
+
+    CREATE VIEW high_customers AS
+    SELECT * FROM customers
+    WHERE rating=
+    (SELECT max(rating) FROM customers);
+     
+
+    CREATE VIEW sales_city AS
+    SELECT city,count(city) "NO OF SALESPEOPLE"
+    FROM salespeople
+    GROUP BY city;
+
+
+     CREATE VIEW A2_T_SAL AS
+     SELECT sname, avg(onum) "AVERAGE",count(onum) "TOTAL ORDERS"
+     FROM salespeople s, orders o
+     where s.snum=o.snum 
+     GROUP BY sname;
+
+     
+ 
+     CREATE VIEW mul_customers AS
+     SELECT sname,cname
+     FROM salespeople S,customers C
+     where S.snum=C.snum;

@@ -1,0 +1,16 @@
+     create table CityOrders as
+     select o.onum,o.amt,o.snum,c.cnum,c.city from orders o,customers c
+     where o.cnum=c.cnum;
+
+     ALTER TABLE cityorders ADD
+     FOREIGN key(onum) REFERENCES orders(onum);
+
+   
+
+   ALTER TABLE cityorders ADD
+   FOREIGN key(cnum) REFERENCES customers(cnum);
+
+   ALTER TABLE copy_orders ADD
+   FOREIGN key(prev) REFERENCES copy_orders(onum);
+
+
