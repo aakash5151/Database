@@ -1,0 +1,60 @@
+
+
+Create View Dailyorders
+as 
+Select Distinct cnum, snum, onum, odate from Orders;
+
+Ans = updateable
+
+#2
+Create View Custotal
+as Select cname, Sum (amt) Sum_Amt from Orders, Customers
+where Orders.cnum=Customers.cnum Group by cname;
+
+Ans = not updateable
+
+#3
+Create view Thirdorders
+as Select * from Dailyorders where odate=’1990-10-03’;
+
+Ans = not updateable
+
+#4
+Create view nullcities
+as Select snum, sname, city
+from Salespeople where city is NULL
+OR sname between ‘A’ and ‘M’;
+
+Ans= updateable
+
+
+
+     CREATE VIEW commission AS
+     SELECT snum,comm
+     FROM salespeople
+     WHERE comm BETWEEN .10 and .20;
+
+
+
+create table orders_4
+(
+Onum int(5),
+Amt float(5,2),
+Odate date default (SYSDATE())
+);
+
+insert into orders_4 (Onum, Amt)
+		    values (1, 300);
+    
+select * from orders_4;
+       
+        
+create view entryorders
+as
+select * from ORDERS_4
+	where Onum in
+	(select Onum_Temp from
+		(select Onum Onum_Temp from orders_4) as tempp)
+			with check option;
+        
+alter table orders_4 add primary key(Onum);

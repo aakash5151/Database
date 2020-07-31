@@ -1,0 +1,31 @@
+
+Ans = GRANT UPDATE ON customers TO Amit ;
+
+     UPDATE ON customers FROM Amit ;
+
+
+Ans = GRANT SELECT ON orders TO Manoj WITH GRANT OPTION;
+
+     select ON Manoj.orders TO aakash;
+
+     Grant UPDATE ON Manoj.orders TO aakash;
+
+
+
+Ans = INSERT ON salespeople FROM Ajita;
+
+
+
+Ans = CREATE OR REPLACE VIEW range100 AS
+     select * FROM customers
+     WHERE rating BETWEEN 100 AND 500 WITH CHECK OPTION;
+
+     GRANT UPDATE ON range100 TO Abhijeet;
+
+
+
+Ans = CREATE OR REPLACE VIEW restrict AS select * from customers WHERE rating NOT IN (SELECT min(rating)
+     FROM customers);
+
+     select ON restrict TO Vikram;
+
